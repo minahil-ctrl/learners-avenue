@@ -32,7 +32,7 @@ The Build Dashboard is a private GitHub repo containing markdown files, subagent
 
 ## Open questions
 
-- **[FLAG — SA-0]** A sibling directory `GTM-Dashboard/` sits one level above this repo. It is its own git repo with Supabase migrations, a Netlify config, a rendered HTML dashboard, and JSON task/blocker backups dated 2026-08-31. If any of it holds Learners' Avenue state, the "no parallel state, repo is source of truth" rule is violated before this repo's first commit, and this decision needs a clause covering migration or explicit exclusion. If it belongs to a different venture, note that here and close the question.
+- `GTM-Dashboard/` (sibling directory, separate git repo) belongs to AgentFlo / Salesflo — Minahil's professional work, unrelated to Learners' Avenue. Confirmed 2026-09-01. No overlap with this repo. Item closed.
 
 ## Revisit if
 

@@ -12,12 +12,12 @@
 
 | # | Item | Raised | Waiting | Blocks |
 |---|---|---|---|---|
-| 1 | Ratify or reject `decisions/2026-09-01-subagent-execution-model.md` (DRAFT) | 2026-09-01 | New | SA-1 activation |
-| 2 | Confirm the two pre-existing decision logs were actually approved by you — both asserted your approval with no evidence, now downgraded to `AWAITING RATIFICATION` | 2026-09-01 | New | Clean audit trail at commit 1 |
-| 3 | Locate or discard the "pre-scaffold plan (steps 1–10)" cited by the taxonomy decision — not present in this repo | 2026-09-01 | New | Taxonomy decision is unverifiable without it |
-| 4 | Decide whether `GTM-Dashboard/` (sibling directory, live git repo, Supabase + Netlify) holds any Learners' Avenue state | 2026-09-01 | New | The no-parallel-state rule |
-| 5 | Confirm or replace the `≥40 backlog items` target — currently an arbitrary number with no basis | 2026-09-01 | New | Nothing. Cosmetic but it is a fake metric. |
-| 6 | Confirm strict subagent sequencing vs. running SA-1 and SA-5 in parallel on channel evidence | 2026-09-01 | New | SA-5 timing |
+| 1 | Ratify or reject `decisions/2026-09-01-subagent-execution-model.md` (DRAFT) | 2026-09-01 | 2026-09-01 | SA-1 activation |
+| 2 | Confirm the two pre-existing decision logs (architecture, taxonomy) — both read `AWAITING RATIFICATION` | 2026-09-01 | 2026-09-01 | Clean audit trail |
+| 3 | Confirm or replace the `≥40 backlog items` target — currently an arbitrary number with no basis | 2026-09-01 | 2026-09-01 | Cosmetic but a fake metric |
+| 4 | Confirm strict subagent sequencing vs. running SA-1 and SA-5 in parallel on channel evidence | 2026-09-01 | 2026-09-01 | SA-5 timing |
+| ~~5~~ | ~~Pre-scaffold plan citation~~ | ~~2026-09-01~~ | **Closed** — citation removed per Minahil (2026-09-01) | — |
+| ~~6~~ | ~~GTM-Dashboard parallel state~~ | ~~2026-09-01~~ | **Closed** — AgentFlo / Salesflo, unrelated (2026-09-01) | — |
 
 ---
 

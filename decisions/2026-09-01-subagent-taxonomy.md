@@ -21,7 +21,7 @@ Sub-subagents nest inside parent folders as domains prove too broad. Taxonomy is
 
 ## Rationale
 
-- Six covers every job surfaced in the strategic outline (steps 1–10 from the pre-scaffold plan). **[FLAG — SA-0]** That outline is not in this repo. Per `CLAUDE.md`, nothing may cite a document that does not exist here. Either add it under `decisions/` or drop this line; until then the rationale is unverifiable.
+- Six is a working structure, not a derived number. The pre-scaffold plan originally cited here did not exist in this repo and has been removed per Minahil's instruction (2026-09-01). The six-subagent count is tentative and subject to revision after the backlog is populated.
 - **Sequencing** is the point: SA-5 dormant until pilot, SA-4 until unit economics, SA-3 until MVP scope. Prevents wasted work on unvalidated assumptions.
 - Nesting sub-subagents inside folders (not renamed files) makes expansion cheap.
 
