@@ -1,6 +1,6 @@
 # Dashboard — Learners' Avenue
 
-**Last updated:** 2026-09-01 (PKT)
+**Last updated:** 2026-09-01 (PKT) — all founding decisions approved
 **Phase:** Pre-launch / Build
 **Active workstream:** Activity discovery (populating `ACTIVITY-BACKLOG.md`)
 
@@ -10,14 +10,7 @@
 
 ## Awaiting Minahil's decision
 
-| # | Item | Raised | Waiting | Blocks |
-|---|---|---|---|---|
-| 1 | Ratify or reject `decisions/2026-09-01-subagent-execution-model.md` (DRAFT) | 2026-09-01 | 2026-09-01 | SA-1 activation |
-| 2 | Confirm the two pre-existing decision logs (architecture, taxonomy) — both read `AWAITING RATIFICATION` | 2026-09-01 | 2026-09-01 | Clean audit trail |
-| 3 | Confirm or replace the `≥40 backlog items` target — currently an arbitrary number with no basis | 2026-09-01 | 2026-09-01 | Cosmetic but a fake metric |
-| 4 | Confirm strict subagent sequencing vs. running SA-1 and SA-5 in parallel on channel evidence | 2026-09-01 | 2026-09-01 | SA-5 timing |
-| ~~5~~ | ~~Pre-scaffold plan citation~~ | ~~2026-09-01~~ | **Closed** — citation removed per Minahil (2026-09-01) | — |
-| ~~6~~ | ~~GTM-Dashboard parallel state~~ | ~~2026-09-01~~ | **Closed** — AgentFlo / Salesflo, unrelated (2026-09-01) | — |
+_None. All founding decisions approved 2026-09-01. Next decision surfaces when backlog reveals a structural question._
 
 ---
 
@@ -25,8 +18,8 @@
 
 | Subagent | Current focus | Status | Blocker |
 |---|---|---|---|
-| SA-0 | Repo scaffolding, charter repair, dashboard maintenance | `[ITERATE]` | Items 1–3 above |
-| SA-1 | Dormant — activates after activity backlog populated | `[WAITING]` | `ACTIVITY-BACKLOG.md` |
+| SA-0 | Repo in order. Next: activity discovery session with Minahil | `[APPROVED]` | None |
+| SA-1 | Active — first task: activity discovery, then market research scope | `[ITERATE]` | Activity backlog session needed |
 | SA-2 | Dormant — activates after SA-1 delivers research pack | `[WAITING]` | SA-1 |
 | SA-3 | Dormant — activates after niche + MVP scope approved | `[WAITING]` | SA-2 |
 | SA-4 | Dormant — activates after unit economics approved | `[WAITING]` | SA-2 |

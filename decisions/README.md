@@ -10,9 +10,9 @@ Newest first. Keep this current — a decisions folder you have to `ls` to navig
 
 | Date | Decision | Status |
 |---|---|---|
-| 2026-09-01 | [Subagents are roles, not processes](2026-09-01-subagent-execution-model.md) | DRAFT |
-| 2026-09-01 | [Tentative 6-subagent taxonomy](2026-09-01-subagent-taxonomy.md) | AWAITING RATIFICATION |
-| 2026-09-01 | [Repo + Markdown as sole source of truth](2026-09-01-architecture.md) | AWAITING RATIFICATION |
+| 2026-09-01 | [Subagents are roles, not processes](2026-09-01-subagent-execution-model.md) | APPROVED |
+| 2026-09-01 | [Tentative 6-subagent taxonomy](2026-09-01-subagent-taxonomy.md) | APPROVED |
+| 2026-09-01 | [Repo + Markdown as sole source of truth](2026-09-01-architecture.md) | APPROVED |
 
 ## Statuses
 

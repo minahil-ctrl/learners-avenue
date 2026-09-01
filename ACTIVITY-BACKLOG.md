@@ -13,6 +13,7 @@ Master list of every job that needs doing across all six domains during the buil
 - Fields: **activity** (what), **why** (evidence link or reasoning), **SA (tentative)** (who might own it), **priority** (P0 blocker / P1 pre-launch / P2 post-pilot), **status**.
 - Nothing gets a subagent assignment until the backlog is populated end-to-end — assignments emerge from the pattern.
 - SA-0 may propose candidate activities but may not set `why`, `SA`, or `priority`. Those are Minahil's. Unset fields read `[NEEDS DECISION]`.
+- **Backlog is complete** when every domain section below has been reviewed by Minahil and no row is blank. There is no numeric target.
 - Once populated, revisit the tentative subagent taxonomy (`decisions/2026-09-01-subagent-taxonomy.md`) and adjust.
 
 ---

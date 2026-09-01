@@ -1,9 +1,9 @@
 # Decision: Subagents are roles, not processes
 
 **Date drafted:** 2026-09-01
-**Status:** DRAFT — awaiting Minahil's approval
+**Status:** APPROVED
 **Drafted by:** SA-0
-**Approved by:** _not yet approved_
+**Approved by:** Minahil Hamdani, 2026-09-01
 
 ## Problem
 

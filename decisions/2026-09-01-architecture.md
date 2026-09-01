@@ -1,10 +1,8 @@
 # Decision: Repo + Markdown as sole source of truth
 
 **Date:** 2026-09-01
-**Status:** AWAITING RATIFICATION
-**Approved by:** _not recorded — see note below_
-
-> **SA-0 note (2026-09-01):** this file originally read `Approved by: Minahil` with no record of when or how that approval was given. The scaffold asserted it. Downgraded pending Minahil's explicit confirmation. If she approved this before the scaffold was generated, restore the line and set Status to APPROVED.
+**Status:** APPROVED
+**Approved by:** Minahil Hamdani, 2026-09-01
 
 ## Decision
 

@@ -1,10 +1,8 @@
 # Decision: Tentative 6-subagent taxonomy
 
 **Date:** 2026-09-01
-**Status:** AWAITING RATIFICATION
-**Approved by:** _not recorded — see note below_
-
-> **SA-0 note (2026-09-01):** this file originally read `Approved by: Minahil (tentative)`, which is a decision log recording an undecided decision. Downgraded pending explicit confirmation. "Tentative approval" is not a status this system has — either the taxonomy is the working structure (APPROVED, with the open questions below still open), or it isn't.
+**Status:** APPROVED
+**Approved by:** Minahil Hamdani, 2026-09-01
 
 ## Decision
 
@@ -24,6 +22,16 @@ Sub-subagents nest inside parent folders as domains prove too broad. Taxonomy is
 - Six is a working structure, not a derived number. The pre-scaffold plan originally cited here did not exist in this repo and has been removed per Minahil's instruction (2026-09-01). The six-subagent count is tentative and subject to revision after the backlog is populated.
 - **Sequencing** is the point: SA-5 dormant until pilot, SA-4 until unit economics, SA-3 until MVP scope. Prevents wasted work on unvalidated assumptions.
 - Nesting sub-subagents inside folders (not renamed files) makes expansion cheap.
+
+## Refinement — 2026-09-01
+
+After audit: taxonomy approved at six roles, but only two roles are **active** until the backlog reveals what the work actually is:
+
+- **SA-0** — Active
+- **SA-1** — Active (first activation pending backlog completion)
+- **SA-2 through SA-5** — Dormant stubs. Charters exist but are provisional. Structure derived from the backlog, not imposed before it.
+
+SA-5 exception: SA-1 will gather channel evidence (where the ICP spends time online) as part of its research scope. That output feeds SA-2 strategy, not SA-5 — SA-5 stays dormant until post-strategy.
 
 ## Open questions
 

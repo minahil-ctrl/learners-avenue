@@ -28,7 +28,7 @@ This repo runs on a subagent architecture, ported from her QWR project:
 - **SA-1 to SA-5:** domain subagents (market research, strategy, tech build, tutor pipeline, GTM). Tentative — refined after activity discovery.
 - Sub-subagents nest inside parent folders when a domain gets too broad for one agent.
 
-**A subagent is a role a session adopts, not a process that runs.** Handoff between subagents happens through committed files, never through live message passing. Claude Code's `Task` tool spawns workers, which are *not* subagents in this taxonomy. See `decisions/2026-09-01-subagent-execution-model.md` — currently DRAFT, awaiting approval.
+**A subagent is a role a session adopts, not a process that runs.** Handoff between subagents happens through committed files, never through live message passing. Claude Code's `Task` tool spawns workers, which are *not* subagents in this taxonomy. See `decisions/2026-09-01-subagent-execution-model.md` (APPROVED 2026-09-01).
 
 ## Session workflow
 
