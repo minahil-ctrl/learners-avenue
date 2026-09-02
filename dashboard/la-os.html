@@ -1,0 +1,582 @@
+<title>Learners' Avenue OS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root {
+  --bg:#080D18; --sb:#0A1120; --surf:#0F1928; --surf2:#152236; --card:#182742;
+  --bdr:#1D3050; --bdr2:#243B5E; --txt:#D0DDF0; --txt2:#7A9BBF; --txt3:#3D5B7A;
+  --gold:#C9A84C; --gold-d:rgba(201,168,76,.10); --gold-l:rgba(201,168,76,.28);
+  --p0:#E05C5C; --p0d:rgba(224,92,92,.10);
+  --p1:#4ECDC4; --p1d:rgba(78,205,196,.08);
+  --p2:#4A6A8A; --p2d:rgba(74,106,138,.08);
+  --mr:#38B2AA; --str:#9B7FD4; --tech:#4D90DC; --tut:#C9A84C; --gtm:#D4728E; --fin:#52A86A;
+  --s-draft:#4A6A8A; --s-prog:#4D90DC; --s-block:#E05C5C; --s-done:#3DA874; --s-need:#E8A020; --s-post:#8B6FD4;
+  --r:6px; --mono:'Space Mono',monospace; --sans:'Sora',system-ui,sans-serif;
+}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){
+  --bg:#EEF2FA; --sb:#E3EAF5; --surf:#fff; --surf2:#F0F4FC; --card:#fff;
+  --bdr:#D0DCEF; --bdr2:#B8CAE3; --txt:#0D1828; --txt2:#4A6A8A; --txt3:#9AB2CC;
+  --gold-d:rgba(160,120,30,.08); --gold-l:rgba(160,120,30,.25);
+}}
+:root[data-theme=light]{
+  --bg:#EEF2FA; --sb:#E3EAF5; --surf:#fff; --surf2:#F0F4FC; --card:#fff;
+  --bdr:#D0DCEF; --bdr2:#B8CAE3; --txt:#0D1828; --txt2:#4A6A8A; --txt3:#9AB2CC;
+  --gold-d:rgba(160,120,30,.08); --gold-l:rgba(160,120,30,.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:13px;line-height:1.5;display:flex;flex-direction:column}
+
+/* TOP BAR */
+.topbar{height:50px;background:var(--sb);border-bottom:1px solid var(--bdr);display:flex;align-items:center;padding:0 18px;gap:12px;flex-shrink:0;z-index:20}
+.logo{font-size:14px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;margin-right:8px}
+.logo span{color:var(--gold)}
+.chips{display:flex;gap:6px;align-items:center;flex:1;overflow:hidden}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-family:var(--mono);font-size:10px;border:1px solid;white-space:nowrap;flex-shrink:0}
+.c-gold{background:var(--gold-d);border-color:var(--gold-l);color:var(--gold)}
+.c-red{background:var(--p0d);border-color:rgba(224,92,92,.25);color:var(--p0)}
+.c-teal{background:var(--p1d);border-color:rgba(78,205,196,.25);color:var(--p1)}
+.c-warn{background:rgba(232,160,32,.10);border-color:rgba(232,160,32,.28);color:var(--s-need)}
+.c-mute{background:transparent;border-color:var(--bdr);color:var(--txt2)}
+.vtog{display:flex;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-left:auto;flex-shrink:0}
+.vbtn{padding:5px 11px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;background:none;color:var(--txt2);font-family:var(--sans);transition:all .12s}
+.vbtn.on{background:var(--surf2);color:var(--txt)}
+
+/* LAYOUT */
+.layout{display:flex;flex:1;min-height:0}
+
+/* SIDEBAR */
+.sidebar{width:210px;flex-shrink:0;background:var(--sb);border-right:1px solid var(--bdr);overflow-y:auto;padding:14px 0}
+.slabel{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);padding:0 14px 8px}
+.sitem{display:flex;align-items:center;gap:9px;padding:7px 14px;cursor:pointer;border-left:3px solid transparent;transition:all .10s;user-select:none}
+.sitem:hover{background:rgba(255,255,255,.03)}
+.sitem.on{background:rgba(255,255,255,.05);border-left-color:var(--dc)}
+.sitem.on .sname{color:var(--txt)}
+.sdot{width:8px;height:8px;border-radius:50%;background:var(--dc);flex-shrink:0}
+.sname{font-size:12px;font-weight:600;color:var(--txt2);flex:1}
+.sbadges{display:flex;gap:3px}
+.sbadge{font-family:var(--mono);font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700}
+.sb-r{background:var(--p0d);color:var(--p0)}
+.sb-w{background:rgba(232,160,32,.10);color:var(--s-need)}
+.ssep{height:1px;background:var(--bdr);margin:10px 0}
+
+/* MAIN */
+.main{flex:1;overflow-y:auto;padding:22px 26px;min-width:0}
+
+/* DOMAIN HEADER */
+.dh{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.dtag-lg{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;padding:4px 10px;border-radius:4px}
+.dtitle{font-size:17px;font-weight:700}
+.dsub{font-size:12px;color:var(--txt2)}
+
+/* URGENT STRIP */
+.ustrip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.ucard{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:11px 13px;cursor:pointer;transition:border-color .12s}
+.ucard:hover{border-color:var(--bdr2)}
+.ucard.p0{border-left:3px solid var(--p0)}
+.ucard.p1{border-left:3px solid var(--p1)}
+.ucard-top{display:flex;justify-content:space-between;gap:8px;margin-bottom:5px}
+.uid{font-family:var(--mono);font-size:10px;color:var(--txt3)}
+.udays{font-family:var(--mono);font-size:10px;font-weight:700}
+.udays.hot{color:var(--p0)}.udays.warm{color:var(--s-need)}.udays.ok{color:var(--p1)}
+.utitle{font-size:12px;font-weight:600;color:var(--txt);line-height:1.35}
+
+/* TABS */
+.tabs{display:flex;gap:1px;margin-bottom:14px;border-bottom:1px solid var(--bdr)}
+.tab{padding:7px 15px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:none;color:var(--txt2);font-family:var(--sans);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .12s}
+.tab.on{color:var(--txt);border-bottom-color:var(--dc)}
+.tab:hover:not(.on){color:var(--txt)}
+.tbadge{font-family:var(--mono);font-size:9px;padding:1px 5px;border-radius:3px;margin-left:5px;background:var(--p0d);color:var(--p0)}
+
+/* TASK TABLE */
+.tw{overflow-x:auto}
+table.tt{width:100%;border-collapse:collapse;font-size:12px}
+.tt th{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);padding:6px 10px;text-align:left;border-bottom:1px solid var(--bdr);white-space:nowrap;background:var(--surf);position:sticky;top:0;z-index:1}
+.tt td{padding:9px 10px;border-bottom:1px solid var(--bdr);vertical-align:middle}
+.tt tr.tr:hover td{background:rgba(255,255,255,.018)}
+.tt tr.tr.ex td{background:rgba(255,255,255,.02)}
+.tt tr.td-row td{padding:0;border-bottom:1px solid var(--bdr)}
+.td-inner{padding:12px 38px 14px;background:var(--surf2);font-size:12px;color:var(--txt2);line-height:1.6}
+.td-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:9px}
+.tlabel{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt3);margin-bottom:3px}
+.tid{font-family:var(--mono);font-size:11px;color:var(--txt3);white-space:nowrap}
+.ttitle{font-weight:500;color:var(--txt)}
+.tdate{font-family:var(--mono);font-size:11px;white-space:nowrap}
+.tdate.hot{color:var(--p0)}.tdate.warm{color:var(--s-need)}.tdate.ok{color:var(--p1)}.tdate.dn{color:var(--txt3);text-decoration:line-through}
+.prio{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px}
+.pP0{background:var(--p0d);color:var(--p0)}.pP1{background:var(--p1d);color:var(--p1)}.pP2{background:var(--p2d);color:var(--p2)}
+.sbtn{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;cursor:pointer;border:none;white-space:nowrap;transition:opacity .12s}
+.sbtn:hover{opacity:.8}
+.sDraft{background:rgba(74,106,138,.15);color:var(--s-draft)}
+.sProgress{background:rgba(77,144,220,.15);color:var(--s-prog)}
+.sBlocked{background:rgba(224,92,92,.15);color:var(--s-block)}
+.sDone{background:rgba(61,168,116,.15);color:var(--s-done)}
+.sNeedsApproval{background:rgba(232,160,32,.15);color:var(--s-need)}
+.sApproved{background:rgba(61,168,116,.15);color:var(--s-done)}
+.sPosted{background:rgba(139,111,212,.15);color:var(--s-post)}
+.deps{display:flex;flex-wrap:wrap;gap:4px}
+.dep{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:3px;background:var(--surf2);border:1px solid var(--bdr);color:var(--txt2);cursor:pointer;white-space:nowrap;transition:all .12s}
+.dep:hover{border-color:var(--bdr2);color:var(--txt)}
+.blk{font-size:11px;color:var(--s-block)}
+.xi{color:var(--txt3);font-size:10px;transition:transform .13s;display:inline-block}
+.xi.o{transform:rotate(90deg)}
+.dom-MR{background:rgba(56,178,170,.12);color:var(--mr)}
+.dom-STR{background:rgba(155,127,212,.12);color:var(--str)}
+.dom-TECH{background:rgba(77,144,220,.12);color:var(--tech)}
+.dom-TUT{background:rgba(201,168,76,.12);color:var(--tut)}
+.dom-GTM{background:rgba(212,114,142,.12);color:var(--gtm)}
+.dom-FIN{background:rgba(82,168,106,.12);color:var(--fin)}
+.dtag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:3px;white-space:nowrap}
+
+/* CONTENT QUEUE */
+.cq{display:flex;flex-direction:column;gap:10px}
+.cc{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
+.cc-head{display:flex;align-items:center;gap:10px;padding:11px 15px;border-bottom:1px solid var(--bdr);cursor:pointer;flex-wrap:wrap}
+.cc-head:hover{background:rgba(255,255,255,.02)}
+.cplat{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:rgba(212,114,142,.12);color:var(--gtm)}
+.ctype{font-size:11px;color:var(--txt2)}
+.ctitle{font-size:13px;font-weight:600;color:var(--txt);flex:1}
+.cacts{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.abtn{padding:4px 11px;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid;font-family:var(--sans);transition:all .12s}
+.btn-ok{background:rgba(61,168,116,.12);border-color:rgba(61,168,116,.30);color:var(--s-done)}
+.btn-ok:hover{background:rgba(61,168,116,.22)}
+.btn-ed{background:transparent;border-color:var(--bdr);color:var(--txt2)}
+.btn-ed:hover{color:var(--txt);border-color:var(--bdr2)}
+.btn-pt{background:rgba(139,111,212,.12);border-color:rgba(139,111,212,.30);color:var(--s-post)}
+.btn-pt:hover{background:rgba(139,111,212,.22)}
+.cc-body{padding:15px;display:none}
+.cc-body.o{display:block}
+.caption{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--r);padding:12px 14px;font-size:12px;color:var(--txt);line-height:1.75;white-space:pre-wrap;margin-bottom:12px}
+.cfoot{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cnote{font-size:11px;color:var(--txt2);line-height:1.5}
+
+/* RESOURCES */
+.rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:9px}
+.rc{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:13px 15px}
+.rtype{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--txt3);margin-bottom:4px}
+.rname{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:3px}
+.rdesc{font-size:11px;color:var(--txt2);line-height:1.5}
+.rstatus{margin-top:8px;display:flex;align-items:center;gap:6px}
+.rdot{width:6px;height:6px;border-radius:50%}
+.rdot.exists{background:var(--s-done)}.rdot.pending{background:var(--s-need)}.rdot.draft{background:var(--s-draft)}
+.rsl{font-size:11px;color:var(--txt2)}
+
+/* STAGE SECTION */
+.ss{margin-bottom:30px}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.sbig{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+.sbig.p0{background:var(--p0d);color:var(--p0);border:1px solid rgba(224,92,92,.25)}
+.sbig.p1{background:var(--p1d);color:var(--p1);border:1px solid rgba(78,205,196,.25)}
+.sbig.p2{background:var(--p2d);color:var(--p2);border:1px solid rgba(74,106,138,.25)}
+.stitle{font-size:15px;font-weight:700}
+.scnt{font-family:var(--mono);font-size:11px;color:var(--txt2)}
+.snote{font-size:11px;color:var(--txt2)}
+
+.mt2{margin-top:8px}
+.empty{padding:28px;text-align:center;color:var(--txt3);font-size:13px}
+.dash{color:var(--txt3)}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:3px}
+</style>
+
+<div class="topbar" id="TB"></div>
+<div class="layout">
+  <div class="sidebar" id="SB"></div>
+  <div class="main" id="MAIN"></div>
+</div>
+
+<script>
+/* DATA */
+const DM = {
+  MR:  {k:'MR',  l:'Market Research', c:'var(--mr)',   sa:'SA-1', d:'Tutoronics intel · competitor map · exam boards'},
+  STR: {k:'STR', l:'Strategy',        c:'var(--str)',  sa:'SA-2', d:'Positioning · pricing · service model'},
+  TECH:{k:'TECH',l:'Tech Build',      c:'var(--tech)', sa:'SA-3', d:'Stripe · WhatsApp Business · Calendly · landing'},
+  TUT: {k:'TUT', l:'Tutor Pipeline',  c:'var(--tut)',  sa:'SA-4', d:'Spec · sourcing · screening · agreements'},
+  GTM: {k:'GTM', l:'GTM',             c:'var(--gtm)',  sa:'SA-5', d:'Outreach · Instagram · content queue'},
+  FIN: {k:'FIN', l:'Finance & Legal', c:'var(--fin)',  sa:'SA-0', d:'Pricing · tutor agreement · T&Cs · payment flow'},
+};
+
+const T = [
+  {id:'MR-001', dom:'MR',  t:'Document Tutoronics intelligence', d:'Pricing, session patterns, student pain points. No student names. Patterns only. You are already inside the market — capture it before leaving.', due:'2026-09-04', p:'P0', deps:[], blk:null},
+  {id:'MR-002', dom:'MR',  t:'Confirm UAE exam board split — CAIE vs Edexcel IAL for Business, Econ, English', d:'Tutor spec depends on this. Academic Dashboard in archive is the starting point. Confirm which boards dominate which Emirate.', due:'2026-09-04', p:'P0', deps:[], blk:null},
+  {id:'MR-003', dom:'MR',  t:'Map 3 competitor agencies in UAE O/A-level', d:'Pricing, subjects, weaknesses, parent complaints. Know what exists before claiming to be better.', due:'2026-09-05', p:'P0', deps:['MR-001'], blk:null},
+  {id:'MR-004', dom:'MR',  t:'Identify 5 active South Asian parent groups in UAE', d:'Facebook and WhatsApp. Search "Pakistani parents Dubai", "South Asian moms Abu Dhabi", school-specific groups. Join as yourself, not as the brand.', due:'2026-09-07', p:'P1', deps:[], blk:null},
+  {id:'MR-P2',  dom:'MR',  t:'Exploratory scan: Nigeria, South Africa, Kenya O-level demand', d:'Archive flagged these as high-volume. Nigeria 27, South Africa 20, UAE 13 data points. Timing: after UAE pilot proves the model.', due:'2026-10-01', p:'P2', deps:['MR-003'], blk:'UAE pilot first'},
+
+  {id:'STR-001',dom:'STR', t:'Write the positioning statement', d:'One sentence: who you serve, what transformation you deliver, why better than alternatives. Everything else (pricing, pitch, bio) references this.', due:'2026-09-05', p:'P0', deps:['MR-001','MR-003'], blk:null},
+  {id:'STR-002',dom:'STR', t:'Confirm service model: curated agency, not marketplace', d:'Determines how tutors are paid, how you pitch to parents, what you can operate solo. A curated agency means you select and vouch — not self-listing.', due:'2026-09-05', p:'P0', deps:[], blk:null},
+  {id:'STR-003',dom:'STR', t:'Set pricing — per session, package, trial rate (USD + PKR)', d:'Starting point: $25/session 1-on-1. Validate against Tutoronics intel. Cannot pitch without a number. Revisit after first 5 students if conversion is slow.', due:'2026-09-06', p:'P0', deps:['MR-001','STR-001'], blk:null},
+  {id:'STR-004',dom:'STR', t:'Design referral mechanic', d:'One free session per successful referral. Simple. Build it into the welcome message from day one so it runs automatically.', due:'2026-09-09', p:'P1', deps:['STR-003'], blk:null},
+  {id:'STR-P2', dom:'STR', t:'Validate name "Learners\' Avenue" for Gulf market resonance', d:'Only revisit if conversion signals resistance. If parents are not repeating the name, it may not be sticking.', due:'2026-10-01', p:'P2', deps:[], blk:'First booking first'},
+
+  {id:'TECH-001',dom:'TECH',t:'Set up Stripe (Pakistan reg) or Wise — whichever goes live first', d:'No payment infrastructure = cannot take money. Do this on day one. Goal: one live test transaction.', due:'2026-09-04', p:'P0', deps:[], blk:null},
+  {id:'TECH-002',dom:'TECH',t:'Set up WhatsApp Business account', d:'Primary channel for Gulf parents. Dedicated business number, not personal. Configure Quick Replies for pricing, booking, trial offer.', due:'2026-09-05', p:'P0', deps:[], blk:null},
+  {id:'TECH-003',dom:'TECH',t:'Set up Calendly (free tier) for session booking', d:'Link from WhatsApp Business. Manual booking is chaos after the first student. Configure: duration, buffer time, confirmation message.', due:'2026-09-07', p:'P1', deps:['TECH-002'], blk:null},
+  {id:'TECH-004',dom:'TECH',t:'Invoice template — branded, line items, payment details', d:'Send within 24h of first session. Include: session date, subject, tutor, rate, payment method. Professionalism at the payment point is where trust is built or lost.', due:'2026-09-08', p:'P1', deps:['STR-003'], blk:null},
+  {id:'TECH-005',dom:'TECH',t:'One-page landing — Carrd or Notion', d:'Subjects, pricing, how to book, tutor bios. Carrd ($19/yr) or Notion. Link from Instagram bio and WhatsApp status. No custom code.', due:'2026-09-10', p:'P1', deps:['STR-001','STR-003','TUT-004'], blk:null},
+  {id:'TECH-006',dom:'TECH',t:'Student/session tracker spreadsheet', d:'Google Sheet: name, subject, tutor, sessions, paid, next session date. A CRM comes later. A spreadsheet works until 20 students.', due:'2026-09-10', p:'P1', deps:[], blk:null},
+  {id:'TECH-P2',dom:'TECH', t:'Full website build', d:'Only after 5 students and a proven pitch. Do not build the website before you have something worth putting on it.', due:'2026-10-15', p:'P2', deps:['STR-001','STR-003'], blk:'5 students confirmed'},
+
+  {id:'TUT-001',dom:'TUT', t:'Define tutor spec — Business, Econ, English Language O/A', d:'Subject requirements, board knowledge (CAIE/Edexcel IAL), availability, home setup. Write before sourcing — the spec is the filter.', due:'2026-09-04', p:'P0', deps:['MR-002'], blk:null},
+  {id:'TUT-002',dom:'TUT', t:'Source 8–10 tutor candidates', d:'LinkedIn, personal network, university connections. Business+Econ together (often one tutor), English Language separately.', due:'2026-09-06', p:'P0', deps:['TUT-001'], blk:null},
+  {id:'TUT-003',dom:'TUT', t:'Screen candidates — 15-min subject check + mock explanation', d:'The mock explanation is non-negotiable. Knowing a subject is not the same as teaching it. Ask them to explain one concept to a student who missed class.', due:'2026-09-08', p:'P0', deps:['TUT-002'], blk:null},
+  {id:'TUT-004',dom:'TUT', t:'Set tutor rates and payout schedule', d:'Per session, payout within 48h of session completion. Tutors will not commit without knowing what they earn. Fast payment is your retention mechanic.', due:'2026-09-08', p:'P0', deps:['STR-003'], blk:null},
+  {id:'TUT-005',dom:'TUT', t:'Sign agreements with 3 tutors', d:'Business/Econ primary, Business/Econ backup, English Language. Cannot deliver without confirmed supply. Use updated agreement template from FIN-002.', due:'2026-09-09', p:'P0', deps:['TUT-003','TUT-004','FIN-002'], blk:null},
+  {id:'TUT-P2', dom:'TUT', t:'Second tutor cohort', d:'Expand beyond 3 once student volume justifies it. Premature hiring creates idle supply and tutor churn.', due:'2026-10-15', p:'P2', deps:['TUT-005'], blk:'5+ active students'},
+
+  {id:'GTM-001',dom:'GTM', t:'Identify 3 UAE contacts for first warm outreach', d:'South Asian parents with school-age children. Personal network first. Three specific people, not a campaign.', due:'2026-09-06', p:'P0', deps:[], blk:null},
+  {id:'GTM-002',dom:'GTM', t:'Send first warm outreach to 3 UAE contacts', d:'"I\'m building something, wanted your honest take" beats "we\'re open for business." Ask for input, not a sale. Conversation, not pitch.', due:'2026-09-09', p:'P0', deps:['GTM-001','STR-001','STR-003'], blk:null},
+  {id:'GTM-003',dom:'GTM', t:'Design trial session offer', d:'First session reduced rate ($15 or free 30 min) with a clear outcome promise. Define exactly what the student gets. Reduces barrier to first commitment.', due:'2026-09-08', p:'P1', deps:['STR-003'], blk:null},
+  {id:'GTM-004',dom:'GTM', t:'Create Instagram profile', d:'Bio with positioning, Calendly link, clean aesthetic. Trust signal only — not acquisition yet. Parents Google you after receiving outreach, before responding.', due:'2026-09-08', p:'P1', deps:['STR-001'], blk:null},
+  {id:'GTM-005',dom:'GTM', t:'Join 2 UAE South Asian parent Facebook groups', d:'Observe 48h before posting. Join as yourself. "Pakistani parents Dubai", "South Asian expats UAE", school-specific groups.', due:'2026-09-09', p:'P1', deps:['MR-004'], blk:null},
+  {id:'GTM-006',dom:'GTM', t:'Post first 3 content pieces', d:'Tutor intro, subject tip, founder story. Warm Instagram before outreach converts. Requires content approval — see Content tab.', due:'2026-09-12', p:'P1', deps:['GTM-004'], blk:'Content approval pending'},
+  {id:'GTM-P2a',dom:'GTM', t:'Content calendar — weeks 3+', d:'Build after learning what resonates in the first two weeks. Content before data is guesswork.', due:'2026-10-01', p:'P2', deps:['GTM-006'], blk:'2 weeks of post data'},
+  {id:'GTM-P2b',dom:'GTM', t:'Paid ads — only after organic baseline', d:'Facebook/Instagram targeting South Asian expats in UAE. Only after unit economics are confirmed.', due:'2026-10-15', p:'P2', deps:['GTM-P2a'], blk:'Organic baseline needed'},
+
+  {id:'FIN-001',dom:'FIN', t:'Finalize pricing model (USD + PKR)', d:'Lock the number before outreach. Per-session and package tiers. Revisit after 5 students if conversion is slow.', due:'2026-09-06', p:'P0', deps:['STR-003'], blk:null},
+  {id:'FIN-002',dom:'FIN', t:'Update tutor agreement template from archive', d:'Template exists (May 2024, 5 signed). Update: rates, subjects, payout schedule, IP clause. Update, do not rewrite.', due:'2026-09-08', p:'P0', deps:['TUT-004'], blk:null},
+  {id:'FIN-003',dom:'FIN', t:'Draft student terms of service', d:'Cancellation (24h minimum), rescheduling, refund policy. Simple and clear. The first dispute without a written policy will be painful.', due:'2026-09-10', p:'P1', deps:['STR-003'], blk:null},
+  {id:'FIN-004',dom:'FIN', t:'Document payment flow', d:'Parent → Stripe/Wise → Minahil → tutor payout. Write it before the first transaction. Every party needs to know how and when money moves.', due:'2026-09-10', p:'P1', deps:['TECH-001','STR-003'], blk:null},
+  {id:'FIN-005',dom:'FIN', t:'Payment tracker spreadsheet', d:'Invoice #, date, student, amount, status, tutor payout date. Revenue you cannot see is revenue you cannot manage.', due:'2026-09-10', p:'P1', deps:['FIN-004'], blk:null},
+];
+
+const CONTENT = [
+  {id:'C1', title:'Tutor Intro — Business & Economics', type:'Single Image', due:'2026-09-10',
+   caption:`Meet your Business Studies and Economics specialist.
+
+Cambridge-qualified, 3+ years teaching O and A-level students across UAE and KSA. Combines deep subject knowledge with the kind of exam technique coaching that actually moves grades.
+
+What to expect in a session:
+→ Past paper analysis, not just theory
+→ Real examples drawn from Gulf economics
+→ Personalised feedback on exam structure and mark allocation
+
+Available for CAIE and Edexcel IAL.
+
+Trial session available now. Link in bio.
+
+#OLevel #ALevel #BusinessStudies #Economics #UAETutor #CAIE #EdexcelIAL #SouthAsianUAE`,
+   visual:'Clean tutor portrait or stylised graphic. Navy/gold palette. Subject label overlaid. No clip art.',
+   note:'Post Sep 10. Approve as is or request edits and I will revise before posting.'},
+
+  {id:'C2', title:'Subject Tip — Economics: PED vs PES', type:'Carousel (3 slides)', due:'2026-09-11',
+   caption:`One thing that trips up O-level Economics students every year:
+
+Confusing PED with PES.
+
+— Slide 1 —
+The question students get wrong:
+"Both measure elasticity — so what's the difference?"
+
+— Slide 2 —
+PED = Price Elasticity of Demand
+→ Consumers. How buyers respond to a price change.
+
+PES = Price Elasticity of Supply
+→ Producers. How sellers respond to a price change.
+
+Same price change. Opposite perspectives.
+
+— Slide 3 —
+The exam trick:
+When you see "elasticity" in a question, ask first:
+Are we talking about buyers or sellers?
+That one question gets you the right formula every time.
+
+Save this for your revision.
+
+Learners' Avenue — O/A-level tutoring for UAE students.
+Book a trial session. Link in bio.
+
+#OLevel #Economics #StudyTip #CAIE #EdexcelIAL #UAEStudents`,
+   visual:'Slide 1: question text, dark bg. Slide 2: two-column comparison. Slide 3: tip pullout, gold accent. Minimal.',
+   note:'Carousel format — 3 slides. Approve to schedule for Sep 11.'},
+
+  {id:'C3', title:'Founder Story — Why I Started This', type:'Single Image + Caption', due:'2026-09-12',
+   caption:`I've been tutoring O and A-level students in the UAE for two years.
+
+The most common question I get from parents isn't "what are your rates?"
+
+It's: "How do I know the tutor actually knows the subject?"
+
+That question stayed with me. Because it's the right one.
+
+At Learners' Avenue, every tutor passes a subject-matter test and a live teaching demo before we recommend them to a single student. Not a CV review. An actual test.
+
+We exist for South Asian families in the UAE who want tutoring held to a standard — not just available.
+
+Business Studies. Economics. English Language. O and A-level.
+
+Trial sessions available now. Link in bio.`,
+   visual:'Personal tone — founder photo (optional) or minimalist text card. Warm, not corporate. No stock photos.',
+   note:'Goes up Sep 12 — the day before the Sep 15 push. Tone is intentionally personal and direct. Approve as is or request edits.'},
+];
+
+const RES = {
+  MR:[
+    {n:'Student Registration (2023)',t:'Archive',s:'exists',d:'5 students, Pakistani background, Business/Biology/Islamiat. Reference for South Asian market profile.'},
+    {n:'Academic Dashboard',t:'Archive',s:'exists',d:'Exam board research by country. UAE: CAIE + Edexcel IAL confirmed.'},
+    {n:'Locations Demand Data',t:'Archive',s:'exists',d:'UAE 13, Nigeria 27, South Africa 20, Kenya data points — O-level demand by market.'},
+    {n:'Competitor Map',t:'Deliverable',s:'pending',d:'3 competitors: name, subjects, pricing, weakness. Needs populating (MR-003).'},
+  ],
+  STR:[
+    {n:'Positioning Statement',t:'Deliverable',s:'pending',d:'One sentence: who, for whom, why different. Output of STR-001. Everything else references it.'},
+    {n:'Pricing Model',t:'Deliverable',s:'pending',d:'Per-session + package tiers, USD + PKR. Depends on MR-001.'},
+    {n:'Business Model Analysis (2023)',t:'Archive',s:'exists',d:'Notes from previous attempt. Useful as reference of what failed — unanswered foundational questions remain.'},
+    {n:'Financial Plan (Archive)',t:'Archive',s:'exists',d:'$25/session, 25% platform cut, 15–30% commission model. Reference baseline only.'},
+  ],
+  TECH:[
+    {n:'Stripe Pakistan Setup',t:'Reference',s:'exists',d:'Requires business registration details. Cards + bank transfer. Do one live test transaction before relying on it.'},
+    {n:'Wise Business Account',t:'Reference',s:'exists',d:'Simpler than Stripe Pakistan. Lower fees for USD receipt. Choose whichever goes live first.'},
+    {n:'Carrd (landing page)',t:'Tool',s:'exists',d:'$19/yr. One-page sites, no code. Sufficient until 20+ students. Use until website is justified.'},
+    {n:'Calendly Free Tier',t:'Tool',s:'exists',d:'One event type, unlimited bookings. Upgrade when you need multiple session types.'},
+    {n:'Invoice Template',t:'Deliverable',s:'pending',d:'Branded. Line items: session date, subject, tutor, rate, payment method. Output of TECH-004.'},
+  ],
+  TUT:[
+    {n:'Tutor Spec',t:'Deliverable',s:'pending',d:'Subjects, board requirements, availability, home setup. Must exist before sourcing begins (TUT-001).'},
+    {n:'Screening Rubric',t:'Deliverable',s:'pending',d:'15-min check criteria + mock explanation scoring. Must exist before TUT-003.'},
+    {n:'Tutor Agreement (May 2024)',t:'Archive',s:'exists',d:'5 signed agreements: Daniyal, Manahil, Shahzaib, Shamoon, Umer Imran. Update rates + payout schedule — see FIN-002.'},
+    {n:'Tutor Timetable (2023)',t:'Archive',s:'exists',d:'8 tutors scheduled. Rs. 6000/3 sessions/week as reference baseline for rate discussions.'},
+  ],
+  GTM:[
+    {n:'Content Queue',t:'Workflow',s:'exists',d:'3 posts drafted, queued for Sep 10–12. See Content tab to review and approve.'},
+    {n:'Instagram Profile Checklist',t:'Template',s:'pending',d:'Bio, Calendly link, highlights setup, profile image. Needed before GTM-004.'},
+    {n:'UAE Parent Group List',t:'Deliverable',s:'pending',d:'5 active South Asian groups. Output of MR-004, used by GTM-005.'},
+    {n:'Trial Session Offer Brief',t:'Deliverable',s:'pending',d:'Rate, duration, outcome promise, call to action. Output of GTM-003.'},
+    {n:'Digital Marketing Planner (2025)',t:'Archive',s:'exists',d:'5-phase campaign Jul–Aug 2025. Every post status = Pending. Reference only — do not replicate.'},
+  ],
+  FIN:[
+    {n:'Tutor Agreement Template',t:'Archive',s:'exists',d:'May 2024. Update rates, subjects, payout schedule — output of FIN-002. Do not start from scratch.'},
+    {n:'Student Terms of Service',t:'Deliverable',s:'pending',d:'Cancellation (24h), rescheduling, refund policy. Output of FIN-003.'},
+    {n:'Payment Flow Doc',t:'Deliverable',s:'pending',d:'Parent → Stripe/Wise → Minahil → tutor. Output of FIN-004.'},
+    {n:'Payment Tracker',t:'Deliverable',s:'pending',d:'Invoice #, date, student, amount, status, tutor payout date. Output of FIN-005.'},
+  ],
+};
+
+/* STATE */
+let S = {view:'domain', dom:'MR', tabs:{}, ex:new Set(), cex:new Set(), ts:{}, cs:{}};
+function load(){try{const r=localStorage.getItem('la-os');if(r){const p=JSON.parse(r);S.ts=p.ts||{};S.cs=p.cs||{};S.view=p.view||'domain';S.dom=p.dom||'MR';}}catch(e){}}
+function save(){try{localStorage.setItem('la-os',JSON.stringify({ts:S.ts,cs:S.cs,view:S.view,dom:S.dom}));}catch(e){}}
+function gts(id){return S.ts[id]||'Draft'}
+function gcs(id){return S.cs[id]||'Draft'}
+
+/* STATUS */
+const SCYCLE=['Draft','Progress','Done','Blocked'];
+const SLABEL={Draft:'Draft',Progress:'In Progress',Done:'Done',Blocked:'Blocked',NeedsApproval:'Needs Approval',Approved:'Approved',Posted:'Posted'};
+const SCLS={Draft:'sDraft',Progress:'sProgress',Done:'sDone',Blocked:'sBlocked',NeedsApproval:'sNeedsApproval',Approved:'sApproved',Posted:'sPosted'};
+const CCYCLE=['Draft','NeedsApproval','Approved','Posted'];
+
+/* HELPERS */
+function du(ds){const t=new Date(ds),n=new Date();t.setHours(0,0,0,0);n.setHours(0,0,0,0);return Math.ceil((t-n)/86400000)}
+function fd(ds){return new Date(ds).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}
+function dc(d,st){if(st==='Done')return'dn';if(d<=3)return'hot';if(d<=6)return'warm';return'ok'}
+function urg(d){if(d<=0)return{c:'hot',t:'TODAY'};if(d===1)return{c:'hot',t:'tmrw'};if(d<=3)return{c:'hot',t:d+'d'};if(d<=6)return{c:'warm',t:d+'d'};return{c:'ok',t:d+'d'}}
+function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function domColor(k){const m={MR:'var(--mr)',STR:'var(--str)',TECH:'var(--tech)',TUT:'var(--tut)',GTM:'var(--gtm)',FIN:'var(--fin)'};return m[k]||'#888'}
+
+function countdown(){const t=new Date('2026-09-15T23:59:00+05:00');return Math.max(0,Math.ceil((t-new Date())/86400000))}
+function p0rem(){return T.filter(t=>t.p==='P0'&&gts(t.id)!=='Done').length}
+function capprove(){return CONTENT.filter(c=>gcs(c.id)==='NeedsApproval').length}
+function domp0(k){return T.filter(t=>t.dom===k&&t.p==='P0'&&gts(t.id)!=='Done').length}
+function domca(k){if(k!=='GTM')return 0;return CONTENT.filter(c=>gcs(c.id)==='NeedsApproval').length}
+
+/* RENDER TOPBAR */
+function rTB(){
+  const ca=capprove();
+  document.getElementById('TB').innerHTML=`
+    <span class="logo">Learners' <span>Avenue</span></span>
+    <div class="chips">
+      <span class="chip c-gold">⏱ ${countdown()}d to Sep 15</span>
+      <span class="chip c-red">P0: ${p0rem()} remaining</span>
+      ${ca?`<span class="chip c-warn">▲ ${ca} awaiting approval</span>`:''}
+      <span class="chip c-mute">Sep 2–15 sprint</span>
+    </div>
+    <a href="https://github.com/minahil-ctrl/learners-avenue" target="_blank" style="font-family:var(--mono);font-size:10px;color:var(--txt2);text-decoration:none;border:1px solid var(--bdr);padding:4px 10px;border-radius:var(--r);white-space:nowrap;transition:color .12s" onmouseover="this.style.color='var(--txt)'" onmouseout="this.style.color='var(--txt2)'">GitHub ↗</a>
+    <div class="vtog">
+      <button class="vbtn ${S.view==='domain'?'on':''}" onclick="sv('domain')">Domain</button>
+      <button class="vbtn ${S.view==='stage'?'on':''}" onclick="sv('stage')">Stage</button>
+    </div>`;
+}
+
+/* RENDER SIDEBAR */
+function rSB(){
+  const items=Object.keys(DM).map(k=>{
+    const m=DM[k],p0=domp0(k),ca=domca(k),on=S.view==='domain'&&S.dom===k;
+    return`<div class="sitem ${on?'on':''}" style="--dc:${m.c}" onclick="sd('${k}')">
+      <span class="sdot" style="background:${m.c}"></span>
+      <span class="sname">${m.l}</span>
+      <span class="sbadges">
+        ${p0?`<span class="sbadge sb-r">${p0}</span>`:''}
+        ${ca?`<span class="sbadge sb-w">▲</span>`:''}
+      </span>
+    </div>`;
+  }).join('');
+  document.getElementById('SB').innerHTML=`
+    <div class="slabel">Domains</div>${items}
+    <div class="ssep"></div>
+    <div class="slabel">Sep 15 Target</div>
+    <div class="sitem" style="--dc:var(--gold)">
+      <span class="sdot" style="background:var(--gold)"></span>
+      <span class="sname">First Booking</span>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--gold)">Sep 15</span>
+    </div>`;
+}
+
+/* RENDER TASK TABLE */
+function rTT(tasks, showDom){
+  if(!tasks.length)return`<div class="empty">No tasks here.</div>`;
+  const rows=tasks.map(t=>{
+    const st=gts(t.id),d=du(t.due),ex=S.ex.has(t.id);
+    const depr=t.deps.length?t.deps.map(dep=>`<span class="dep" onclick="gt('${dep}',event)">${dep}</span>`).join(''):`<span class="dash">—</span>`;
+    const detrow=ex?`<tr class="td-row" id="td-${t.id}"><td colspan="${showDom?9:8}">
+      <div class="td-inner">
+        <div>${e(t.d)}</div>
+        <div class="td-grid">
+          ${t.blk?`<div><div class="tlabel">Blocker</div><span class="blk">${e(t.blk)}</span></div>`:''}
+          ${t.deps.length?`<div><div class="tlabel">Dependencies</div><div class="deps">${t.deps.map(dep=>`<span class="dep" onclick="gt('${dep}',event)">${dep}</span>`).join('')}</div></div>`:''}
+        </div>
+      </div>
+    </td></tr>`:'';
+    return`<tr class="tr ${ex?'ex':''}" id="tr-${t.id}" onclick="te('${t.id}')">
+      <td><span class="tid">${t.id}</span></td>
+      ${showDom?`<td><span class="dtag dom-${t.dom}">${t.dom}</span></td>`:''}
+      <td><span class="ttitle">${e(t.t)}</span></td>
+      <td><span class="tdate ${dc(d,st)}">${fd(t.due)}</span></td>
+      <td><span class="prio p${t.p}">${t.p}</span></td>
+      <td onclick="event.stopPropagation()"><button class="sbtn ${SCLS[st]}" onclick="ct('${t.id}',event)">${SLABEL[st]}</button></td>
+      <td>${t.blk?`<span class="blk">⚑</span>`:`<span class="dash">—</span>`}</td>
+      <td><div class="deps">${depr}</div></td>
+      <td><span class="xi ${ex?'o':''}">▶</span></td>
+    </tr>${detrow}`;
+  }).join('');
+  return`<div class="tw"><table class="tt"><thead><tr>
+    <th>ID</th>${showDom?'<th>Domain</th>':''}
+    <th>Task</th><th>Due</th><th>Priority</th><th>Status</th><th>Blk</th><th>Dependencies</th><th></th>
+  </tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+/* RENDER CONTENT QUEUE */
+function rCQ(){
+  const cards=CONTENT.map(c=>{
+    const st=gcs(c.id),op=S.cex.has(c.id),d=du(c.due),u=urg(d);
+    let acts='';
+    if(st==='Draft')acts=`<button class="abtn btn-ok" onclick="sc('${c.id}','NeedsApproval',event)">Submit for Approval</button>`;
+    else if(st==='NeedsApproval')acts=`<button class="abtn btn-ok" onclick="sc('${c.id}','Approved',event)">Approve</button><button class="abtn btn-ed" onclick="sc('${c.id}','Draft',event)">Request Edit</button>`;
+    else if(st==='Approved')acts=`<button class="abtn btn-pt" onclick="sc('${c.id}','Posted',event)">Mark Posted</button><span style="font-size:11px;color:var(--s-done)">✓ Approved — ready to post</span>`;
+    else if(st==='Posted')acts=`<span style="font-size:11px;color:var(--s-post)">✓ Posted</span>`;
+    return`<div class="cc">
+      <div class="cc-head" onclick="ce('${c.id}')">
+        <span class="cplat">Instagram</span>
+        <span class="ctype">${e(c.type)}</span>
+        <span class="udays ${u.c}" style="margin-left:2px">${u.t}</span>
+        <span class="ctitle">${e(c.title)}</span>
+        <div class="cacts" onclick="event.stopPropagation()">
+          <span class="sbtn ${SCLS[st]}">${SLABEL[st]}</span>
+          ${acts}
+        </div>
+      </div>
+      <div class="cc-body ${op?'o':''}">
+        <div class="tlabel mt2" style="margin-bottom:8px">Draft Caption</div>
+        <div class="caption">${e(c.caption)}</div>
+        <div class="cfoot">
+          <div><div class="tlabel">Visual Direction</div><div class="cnote">${e(c.visual)}</div></div>
+          <div><div class="tlabel">Note</div><div class="cnote">${e(c.note)}</div></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  return`<div style="font-size:12px;color:var(--txt2);margin-bottom:10px">3 posts drafted for Sep 10–12. Approve each to release. I post once marked Approved.</div><div class="cq">${cards}</div>`;
+}
+
+/* RENDER RESOURCES */
+function rRes(k){
+  const rs=RES[k]||[];
+  if(!rs.length)return`<div class="empty">No resources tracked yet.</div>`;
+  return`<div class="rg">${rs.map(r=>`<div class="rc">
+    <div class="rtype">${e(r.t)}</div>
+    <div class="rname">${e(r.n)}</div>
+    <div class="rdesc">${e(r.d)}</div>
+    <div class="rstatus"><span class="rdot ${r.s}"></span><span class="rsl">${r.s==='exists'?'Available':r.s==='pending'?'Needs creating':'Draft'}</span></div>
+  </div>`).join('')}</div>`;
+}
+
+/* RENDER URGENT STRIP */
+function rUS(k){
+  const ut=T.filter(t=>t.dom===k&&gts(t.id)!=='Done').sort((a,b)=>{const pa=a.p==='P0'?0:a.p==='P1'?1:2,pb=b.p==='P0'?0:b.p==='P1'?1:2;if(pa!==pb)return pa-pb;return new Date(a.due)-new Date(b.due)}).slice(0,3);
+  if(!ut.length)return'';
+  return`<div class="ustrip">${ut.map(t=>{const d=du(t.due),u=urg(d);return`<div class="ucard ${t.p==='P0'?'p0':'p1'}" onclick="gt('${t.id}',event)">
+    <div class="ucard-top"><span class="uid">${t.id}</span><span class="udays ${u.c}">${u.t}</span></div>
+    <div class="utitle">${e(t.t.length>62?t.t.slice(0,59)+'…':t.t)}</div>
+  </div>`}).join('')}</div>`;
+}
+
+/* RENDER DOMAIN VIEW */
+function rDV(){
+  const k=S.dom,m=DM[k],tab=S.tabs[k]||'tasks';
+  const dt=T.filter(t=>t.dom===k),hasC=k==='GTM';
+  const p0c=dt.filter(t=>t.p==='P0'&&gts(t.id)!=='Done').length;
+  const ca=hasC?CONTENT.filter(c=>gcs(c.id)==='NeedsApproval').length:0;
+  const body=tab==='tasks'?rTT(dt.filter(t=>t.p!=='P2')):tab==='p2'?rTT(dt.filter(t=>t.p==='P2')):tab==='content'?rCQ():rRes(k);
+  const hasP2=dt.some(t=>t.p==='P2');
+  return`
+    <div class="dh">
+      <span class="dtag-lg dom-${k}" style="background:rgba(0,0,0,.2);border:1px solid ${m.c}40;color:${m.c}">${k}</span>
+      <span class="dtitle">${m.l}</span>
+      <span class="dsub">— ${m.d}</span>
+    </div>
+    ${rUS(k)}
+    <div class="tabs" style="--dc:${m.c}">
+      <button class="tab ${tab==='tasks'?'on':''}" onclick="stab('${k}','tasks')">Tasks${p0c?`<span class="tbadge">${p0c} P0</span>`:''}</button>
+      ${hasP2?`<button class="tab ${tab==='p2'?'on':''}" onclick="stab('${k}','p2')">P2 Backlog</button>`:''}
+      <button class="tab ${tab==='resources'?'on':''}" onclick="stab('${k}','resources')">Resources</button>
+      ${hasC?`<button class="tab ${tab==='content'?'on':''}" onclick="stab('${k}','content')">Content${ca?`<span class="tbadge">${ca} ▲</span>`:''}</button>`:''}
+    </div>
+    ${body}`;
+}
+
+/* RENDER STAGE VIEW */
+function rSV(){
+  return[
+    {k:'P0',l:'Do First — These Block Everything',s:'Complete before moving to P1.',cls:'p0'},
+    {k:'P1',l:'By Sep 15 — Launch Infrastructure',s:'Everything parents see when outreach converts.',cls:'p1'},
+    {k:'P2',l:'Post-Launch — First 30 Days',s:'Only after first booking confirmed.',cls:'p2'},
+  ].map(st=>{
+    const tasks=T.filter(t=>t.p===st.k),rem=tasks.filter(t=>gts(t.id)!=='Done').length;
+    return`<div class="ss">
+      <div class="sh">
+        <span class="sbig ${st.cls}">${st.k}</span>
+        <span class="stitle">${st.l}</span>
+        <span class="scnt">${rem} remaining / ${tasks.length}</span>
+        <span class="snote">${st.s}</span>
+      </div>
+      ${rTT(tasks,true)}
+    </div>`;
+  }).join('');
+}
+
+/* MAIN RENDER */
+function R(){
+  rTB();rSB();
+  document.getElementById('MAIN').innerHTML=S.view==='stage'?rSV():rDV();
+}
+
+/* EVENTS */
+function sv(v){S.view=v;save();R()}
+function sd(k){S.dom=k;S.view='domain';save();R()}
+function stab(k,t){S.tabs[k]=t;R()}
+function te(id){S.ex.has(id)?S.ex.delete(id):S.ex.add(id);R()}
+function ce(id){S.cex.has(id)?S.cex.delete(id):S.cex.add(id);R()}
+function ct(id,ev){ev.stopPropagation();const cur=gts(id),i=SCYCLE.indexOf(cur),n=SCYCLE[(i+1)%SCYCLE.length];S.ts[id]=n;save();R()}
+function sc(id,st,ev){ev.stopPropagation();S.cs[id]=st;save();R()}
+function gt(tid,ev){
+  ev.stopPropagation();
+  const task=T.find(t=>t.id===tid);if(!task)return;
+  S.view='domain';S.dom=task.dom;S.tabs[task.dom]='tasks';S.ex.add(tid);R();
+  setTimeout(()=>{const el=document.getElementById('tr-'+tid);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},60);
+}
+
+load();R();
+setInterval(()=>{rTB();},60000);
+</script>
