@@ -211,7 +211,7 @@ const T = [
   {id:'STR-004',dom:'STR', t:'Design referral mechanic', d:'One free session per successful referral. Simple. Build it into the welcome message from day one so it runs automatically.', due:'2026-09-09', p:'P1', deps:['STR-003'], blk:null},
   {id:'STR-P2', dom:'STR', t:'Validate name "Learners\' Avenue" for Gulf market resonance', d:'Only revisit if conversion signals resistance. If parents are not repeating the name, it may not be sticking.', due:'2026-10-01', p:'P2', deps:[], blk:'First booking first'},
 
-  {id:'TECH-001',dom:'TECH',t:'Set up Stripe (Pakistan reg) or Wise — whichever goes live first', d:'No payment infrastructure = cannot take money. Do this on day one. Goal: one live test transaction.', due:'2026-09-04', p:'P0', deps:[], blk:null},
+  {id:'TECH-001',dom:'TECH',t:'Set up Payoneer — receives USD from UAE parents, works for Pakistani businesses', d:'Stripe does not support Pakistan. Payoneer is the most practical option: card + bank transfer acceptance, widely used by Pakistani service businesses. Goal: one live test transaction by Sep 4.', due:'2026-09-04', p:'P0', deps:[], blk:null},
   {id:'TECH-002',dom:'TECH',t:'Set up WhatsApp Business account', d:'Primary channel for Gulf parents. Dedicated business number, not personal. Configure Quick Replies for pricing, booking, trial offer.', due:'2026-09-05', p:'P0', deps:[], blk:null},
   {id:'TECH-003',dom:'TECH',t:'Set up Calendly (free tier) for session booking', d:'Link from WhatsApp Business. Manual booking is chaos after the first student. Configure: duration, buffer time, confirmation message.', due:'2026-09-07', p:'P1', deps:['TECH-002'], blk:null},
   {id:'TECH-004',dom:'TECH',t:'Invoice template — branded, line items, payment details', d:'Send within 24h of first session. Include: session date, subject, tutor, rate, payment method. Professionalism at the payment point is where trust is built or lost.', due:'2026-09-08', p:'P1', deps:['STR-003'], blk:null},
@@ -328,8 +328,8 @@ const RES = {
     {n:'Financial Plan (Archive)',t:'Archive',s:'exists',d:'$25/session, 25% platform cut, 15–30% commission model. Reference baseline only.'},
   ],
   TECH:[
-    {n:'Stripe Pakistan Setup',t:'Reference',s:'exists',d:'Requires business registration details. Cards + bank transfer. Do one live test transaction before relying on it.'},
-    {n:'Wise Business Account',t:'Reference',s:'exists',d:'Simpler than Stripe Pakistan. Lower fees for USD receipt. Choose whichever goes live first.'},
+    {n:'Payoneer',t:'Tool',s:'exists',d:'Primary payment method. Receives USD from UAE parents. Card + bank transfer. Widely used by Pakistani service businesses. Start here — do one live test transaction first.'},
+    {n:'Wise Personal',t:'Reference',s:'exists',d:'Fallback. Works for receiving international transfers in Pakistan but has limits and is not a proper business account.'},
     {n:'Carrd (landing page)',t:'Tool',s:'exists',d:'$19/yr. One-page sites, no code. Sufficient until 20+ students. Use until website is justified.'},
     {n:'Calendly Free Tier',t:'Tool',s:'exists',d:'One event type, unlimited bookings. Upgrade when you need multiple session types.'},
     {n:'Invoice Template',t:'Deliverable',s:'pending',d:'Branded. Line items: session date, subject, tutor, rate, payment method. Output of TECH-004.'},

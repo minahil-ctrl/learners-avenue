@@ -97,11 +97,16 @@ Tutor payout: per session, within 48 hours of session completion.
 
 ## 5. Payment Infrastructure
 
-**Stripe (Pakistan registration)** or **Wise** — whichever goes live first. Both are being set up in parallel (TECH-001).
+**Payoneer** — most practical option for a Pakistani business receiving USD from UAE parents. Stripe does not support Pakistan. Wise personal account works for receiving but is not a proper business account.
+
+Options in order of recommendation:
+1. **Payoneer** — purpose-built for international payments, card + bank transfer acceptance, widely used by Pakistani freelancers and service businesses. Start here.
+2. **Wise Personal** — works for receiving transfers, has limits, not a business account.
+3. **USD bank account** — HBL, MCB, UBL all offer USD accounts for international wire transfers. Slower to set up, more formal.
 
 Flow:
 ```
-Parent → Stripe/Wise → Minahil (platform) → Tutor payout (within 48h)
+Parent → Payoneer → Minahil (platform) → Tutor payout (within 48h)
 ```
 
 The platform's margin is the spread between what parents pay and what tutors receive. Exact split to be confirmed in STR-003 / FIN-001.

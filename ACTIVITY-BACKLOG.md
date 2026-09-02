@@ -31,7 +31,7 @@ Complete before moving to P1. Each one is a dependency for something downstream.
 |---|---|---|---|---|
 | P0 | Market Research | Document Tutoronics intelligence — pricing, session patterns, pain points. No student names. Patterns only. | Sep 4 | [DRAFT] |
 | P0 | Market Research | Confirm UAE exam board split — CAIE vs Edexcel IAL for Business Studies, Economics, English Language | Sep 4 | [DRAFT] |
-| P0 | Tech Build | Set up Stripe (Pakistan registration) or Wise — whichever is live first. No payment infra = can't take money. | Sep 4 | [DRAFT] |
+| P0 | Tech Build | Set up Payoneer — receives USD from UAE parents, works for Pakistani businesses. No payment infra = can't take money. | Sep 4 | [DRAFT] |
 | P0 | Tutor Pipeline | Define tutor spec — subject requirements, board knowledge, availability, home setup for remote delivery | Sep 4 | [DRAFT] |
 | P0 | Market Research | Map 3 competitor agencies in UAE O/A-level — pricing, subjects, weaknesses | Sep 5 | [DRAFT] |
 | P0 | Strategy | Write the positioning statement — one sentence: who, for whom, why different from what already exists | Sep 5 | [DRAFT] |
