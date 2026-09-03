@@ -34,7 +34,7 @@ Full detail: [`ACTIVITY-BACKLOG.md`](ACTIVITY-BACKLOG.md). Visual dashboard: pub
 |---|---|---|---|
 | SA-0 | Sprint coordination, backlog, dashboard | [APPROVED] | None |
 | SA-1 | MR-001 written (Tutoronics intel + competitor rates). MR-002 (exam boards) next. | [ITERATE] | — |
-| SA-2 | Ready to activate — MR-001 delivered. Positioning + pricing due Sep 5–6. | [WAITING] | Minahil activates |
+| SA-2 | STR-001 (positioning, 3 options) + STR-003 (pricing, 3 models) written. Awaiting Minahil decision. | [ITERATE] | — |
 | SA-3 | Activate for Stripe/Wise, WhatsApp Business, Calendly, landing page | [WAITING] | Minahil activates |
 | SA-4 | Activate for tutor spec, sourcing, screening, agreements | [WAITING] | Minahil activates |
 | SA-5 | Activate for warm outreach, Instagram, trial offer | [WAITING] | SA-2 |
@@ -43,6 +43,7 @@ Full detail: [`ACTIVITY-BACKLOG.md`](ACTIVITY-BACKLOG.md). Visual dashboard: pub
 
 ## Recent completions
 
+- **2026-09-03** — `STR-001-positioning.md` and `STR-003-pricing.md` written. 3 positioning options, 3 pricing models with full unit economics. Awaiting Minahil decisions.
 - **2026-09-03** — `MR-001-tutoronics-intel.md` written. Covers tutor payout structure, commission model, student feedback, session format comparison, competitor rate map (Tutopiya, Superprof, EdFlik, Spires), and market pain points. SA-2 unblocked.
 - **2026-09-02** — `ACTIVITY-BACKLOG.md` populated: 17 P0 items (Sep 4–9), 13 P1 items (Sep 7–12), 7 P2 items (post-launch). Sep 15 first-booking milestone set.
 - **2026-09-02** — Sprint dashboard published as artifact (Sep 2 session). Shows priorities and deadlines to Sep 15.
