@@ -43,6 +43,7 @@ Full detail: [`ACTIVITY-BACKLOG.md`](ACTIVITY-BACKLOG.md). Visual dashboard: pub
 
 ## Recent completions
 
+- **2026-09-03** — `STR-002-product-framework.md` finalised and approved. 3 tracks, 9 products, Mentor Check-in exclusive to Monthly Plan. Framework locked.
 - **2026-09-03** — `STR-001-positioning.md` and `STR-003-pricing.md` written. 3 positioning options, 3 pricing models with full unit economics. Awaiting Minahil decisions.
 - **2026-09-03** — `MR-001-tutoronics-intel.md` written. Covers tutor payout structure, commission model, student feedback, session format comparison, competitor rate map (Tutopiya, Superprof, EdFlik, Spires), and market pain points. SA-2 unblocked.
 - **2026-09-02** — `ACTIVITY-BACKLOG.md` populated: 17 P0 items (Sep 4–9), 13 P1 items (Sep 7–12), 7 P2 items (post-launch). Sep 15 first-booking milestone set.
