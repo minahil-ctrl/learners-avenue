@@ -1,6 +1,6 @@
 # Dashboard — Learners' Avenue
 
-**Last updated:** 2026-09-02 (PKT) — backlog populated, Sep 15 target set
+**Last updated:** 2026-09-03 (PKT) — MR-001 Tutoronics intel written, SA-2 now unblocked
 **Phase:** Pre-launch / Build sprint
 **Active workstream:** Sep 15 sprint — see `ACTIVITY-BACKLOG.md`
 
@@ -33,8 +33,8 @@ Full detail: [`ACTIVITY-BACKLOG.md`](ACTIVITY-BACKLOG.md). Visual dashboard: pub
 | Subagent | Current focus | Status | Blocker |
 |---|---|---|---|
 | SA-0 | Sprint coordination, backlog, dashboard | [APPROVED] | None |
-| SA-1 | Activate for P0 market research items (Tutoronics intel, competitor map, exam boards) | [WAITING] | Minahil activates |
-| SA-2 | Activate for positioning statement, pricing, service model | [WAITING] | SA-1 |
+| SA-1 | MR-001 written (Tutoronics intel + competitor rates). MR-002 (exam boards) next. | [ITERATE] | — |
+| SA-2 | Ready to activate — MR-001 delivered. Positioning + pricing due Sep 5–6. | [WAITING] | Minahil activates |
 | SA-3 | Activate for Stripe/Wise, WhatsApp Business, Calendly, landing page | [WAITING] | Minahil activates |
 | SA-4 | Activate for tutor spec, sourcing, screening, agreements | [WAITING] | Minahil activates |
 | SA-5 | Activate for warm outreach, Instagram, trial offer | [WAITING] | SA-2 |
@@ -43,6 +43,7 @@ Full detail: [`ACTIVITY-BACKLOG.md`](ACTIVITY-BACKLOG.md). Visual dashboard: pub
 
 ## Recent completions
 
+- **2026-09-03** — `MR-001-tutoronics-intel.md` written. Covers tutor payout structure, commission model, student feedback, session format comparison, competitor rate map (Tutopiya, Superprof, EdFlik, Spires), and market pain points. SA-2 unblocked.
 - **2026-09-02** — `ACTIVITY-BACKLOG.md` populated: 17 P0 items (Sep 4–9), 13 P1 items (Sep 7–12), 7 P2 items (post-launch). Sep 15 first-booking milestone set.
 - **2026-09-02** — Sprint dashboard published as artifact (Sep 2 session). Shows priorities and deadlines to Sep 15.
 - **2026-09-01** — All founding decisions approved: subagent execution model, architecture, taxonomy.
