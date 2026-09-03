@@ -199,15 +199,84 @@ const DM = {
 };
 
 const T = [
-  {id:'MR-001', dom:'MR',  t:'Document Tutoronics intelligence', d:'Pricing, session patterns, student pain points. No student names. Patterns only. You are already inside the market — capture it before leaving.', due:'2026-09-04', p:'P0', deps:[], blk:null},
+  {id:'MR-001', dom:'MR',  t:'Document Tutoronics intelligence', d:'Pricing, session patterns, student pain points. No student names. Patterns only. You are already inside the market — capture it before leaving.', due:'2026-09-04', p:'P0', deps:[], blk:null, st:'Done', out:`Tutor payout: Rs. 2,250/hr. Filter Tutors takes 30% first-month commission on top.
+
+Session format at Tutoronics: 1 hour, lecture or book reading. No structured deck, no quiz, no assignment close. Learners' Avenue sessions: quiz start + deck + video or assignment close — meaningfully different.
+
+Student feedback pattern: students felt more engaged when connected to the tutor personally. Engagement is the gap Tutoronics does not fill.
+
+Busy subjects: Business Studies and Physics at O/A Level.
+
+Competitor rate map:
+- Tutopiya: AED 45-65/hr (parent rate)
+- Superprof: AED 80-250/hr — student rating 1.1/5
+- EdFlik: AED 65-80/hr A-Level
+- Spires: AED 140+/hr
+
+Full file: workstreams/market-research/MR-001-tutoronics-intel.md`},
   {id:'MR-002', dom:'MR',  t:'Confirm UAE exam board split — CAIE vs Edexcel IAL for Business, Econ, English', d:'Tutor spec depends on this. Academic Dashboard in archive is the starting point. Confirm which boards dominate which Emirate.', due:'2026-09-04', p:'P0', deps:[], blk:null},
-  {id:'MR-003', dom:'MR',  t:'Map 3 competitor agencies in UAE O/A-level', d:'Pricing, subjects, weaknesses, parent complaints. Know what exists before claiming to be better.', due:'2026-09-05', p:'P0', deps:['MR-001'], blk:null},
+  {id:'MR-003', dom:'MR',  t:'Map 3 competitor agencies in UAE O/A-level', d:'Pricing, subjects, weaknesses, parent complaints. Know what exists before claiming to be better.', due:'2026-09-05', p:'P0', deps:['MR-001'], blk:null, st:'Done', out:`8 agencies mapped. Key findings:
+
+Mid-tier: Tutopiya (AED 45-65/hr, free first session, 83% A*/A claim), Superprof (AED 80-250, open marketplace, 1.1/5 student rating), MyPrivateTutor (directory, no curation), Ustaad (curated since 2015, free first lesson).
+
+Higher-tier: EdFlik (AED 65-80/hr A-Level, monthly progress reports), Spires (AED 140+, 50+ subjects, UK-origin), ALevel Tutor ae (AED 100-430, A-Level only), Dubai Tutors ae (AED 140-390, home visits).
+
+The gap: Zero agencies have South Asian cultural positioning. Every agency sells hours. None sell structure, crash courses, diagnostics, or mentor support as named products.
+
+Economics A-Level entries up 10.5% in 2026. Business Studies in top 10. Demand direction matches our subject selection.
+
+Tutopiya tutor page format noted for SA-3 reference: filter by curriculum > subject > level. Card shows photo, qualifications, rate, board expertise, reviews.
+
+Full file: workstreams/market-research/MR-003-competitor-teardown.md`},
   {id:'MR-004', dom:'MR',  t:'Identify 5 active South Asian parent groups in UAE', d:'Facebook and WhatsApp. Search "Pakistani parents Dubai", "South Asian moms Abu Dhabi", school-specific groups. Join as yourself, not as the brand.', due:'2026-09-07', p:'P1', deps:[], blk:null},
   {id:'MR-P2',  dom:'MR',  t:'Exploratory scan: Nigeria, South Africa, Kenya O-level demand', d:'Archive flagged these as high-volume. Nigeria 27, South Africa 20, UAE 13 data points. Timing: after UAE pilot proves the model.', due:'2026-10-01', p:'P2', deps:['MR-003'], blk:'UAE pilot first'},
 
-  {id:'STR-001',dom:'STR', t:'Write the positioning statement', d:'One sentence: who you serve, what transformation you deliver, why better than alternatives. Everything else (pricing, pitch, bio) references this.', due:'2026-09-05', p:'P0', deps:['MR-001','MR-003'], blk:null},
-  {id:'STR-002',dom:'STR', t:'Confirm service model: curated agency, not marketplace', d:'Determines how tutors are paid, how you pitch to parents, what you can operate solo. A curated agency means you select and vouch — not self-listing.', due:'2026-09-05', p:'P0', deps:[], blk:null},
-  {id:'STR-003',dom:'STR', t:'Set pricing — per session, package, trial rate (USD + PKR)', d:'Starting point: $25/session 1-on-1. Validate against Tutoronics intel. Cannot pitch without a number. Revisit after first 5 students if conversion is slow.', due:'2026-09-06', p:'P0', deps:['MR-001','STR-001'], blk:null},
+  {id:'STR-001',dom:'STR', t:'Write the positioning statement', d:'One sentence: who you serve, what transformation you deliver, why better than alternatives. Everything else (pricing, pitch, bio) references this.', due:'2026-09-05', p:'P0', deps:['MR-001','MR-003'], blk:null, st:'NeedsApproval', out:`Direction (from Minahil): "Where young entrepreneurial minds engage with syllabus content in a way that bridges the practical and theoretical for mastery in exams and life."
+
+Approved taglines:
+- V2: "Where entrepreneurial minds master the syllabus and the world behind it."
+- V4: "Master the subject. Understand the world."
+
+Three positioning options written. SA-2 recommendation: Option B (Commerce Academy) as brand identity, Option C language for copy.
+
+Option A: "The structured commerce education system for GCC students" — verifiable gap claim
+Option B: "The only specialist academy for O and A-level Business, Economics, and English Language in the GCC" — academy tier
+Option C: Feature-led description — strongest as website/pitch copy, weaker as brand identity
+
+DECISION NEEDED: Which option? Academy vs agency framing? GCC vs UAE from day one?
+
+Full file: workstreams/strategy/STR-001-positioning.md`},
+  {id:'STR-002',dom:'STR', t:'Product framework — support types and tracks', d:'Determines how tutors are paid, how you pitch to parents, what you can operate solo. A curated agency means you select and vouch — not self-listing.', due:'2026-09-05', p:'P0', deps:[], blk:null, st:'Approved', out:`APPROVED by Minahil, Sep 3 session.
+
+Entry point (universal): Diagnostic Session — maps gaps, produces written plan, primary conversion tool.
+
+Track 1 (Ongoing Support): Monthly Plan (auto-renews, best rate, priority scheduling, includes Mentor Check-in) + Single Session (pay per session, same format, higher rate).
+
+Track 2 (Targeted Support): Crash Course (3hr or 6hr intensive, pre-exam, no enrollment needed) + Clinic (60-90min, one specific problem) + Study Kit (async self-study pack, one topic, permanent access).
+
+Track 3 (Mentor Support, open to all): Clarity Session (stress, burnout, overwhelm — not therapy, academic mentorship) + Study Strategy Session (fix the method, not the effort) + Mentor Check-in (Monthly Plan exclusive, 30min monthly touchpoint).
+
+The word "module" is retired. Track 3 is a genuine differentiator — no UAE competitor offers mentorship as a named product.
+
+Full file: workstreams/strategy/STR-002-product-framework.md`},
+  {id:'STR-003',dom:'STR', t:'Set pricing — per session, package, trial rate (USD + PKR)', d:'Starting point: $25/session 1-on-1. Validate against Tutoronics intel. Cannot pitch without a number. Revisit after first 5 students if conversion is slow.', due:'2026-09-06', p:'P0', deps:['MR-001','STR-001'], blk:null, st:'NeedsApproval', out:`Draft pricing written. Awaiting Minahil sign-off.
+
+Enrollment fee: $49 (waived for founding 20)
+Single session: $38 standard / $25 founding
+4-session pack: $136 / $88 founding
+8-session pack: $256 / $160 founding
+Monthly Plan: $240/month / $160 founding (auto-renews)
+Crash Course: $95 (3hr) / $120 (4hr) / $175 (6hr intensive)
+Diagnostic: $45 standalone / $60 with written plan
+Clinic: $48-65
+Study Kit: $18 per topic / $55 chapter bundle / $120 full subject
+Dashboard standalone: $19/month (deferred to month 3+)
+
+Founding 20: permanently locked rates (not trial). Enrollment fee waived. Named in Founding Cohort.
+
+DECISIONS NEEDED: Confirm rates. Founding 20 public offer or warm outreach only? Currency display: USD only or AED alongside?
+
+Full file: workstreams/strategy/STR-003-pricing.md`},
   {id:'STR-004',dom:'STR', t:'Design referral mechanic', d:'One free session per successful referral. Simple. Build it into the welcome message from day one so it runs automatically.', due:'2026-09-09', p:'P1', deps:['STR-003'], blk:null},
   {id:'STR-P2', dom:'STR', t:'Validate name "Learners\' Avenue" for Gulf market resonance', d:'Only revisit if conversion signals resistance. If parents are not repeating the name, it may not be sticking.', due:'2026-10-01', p:'P2', deps:[], blk:'First booking first'},
 
@@ -243,75 +312,40 @@ const T = [
 ];
 
 const CONTENT = [
-  {id:'C1', title:'Tutor Intro — Business & Economics', type:'Single Image', due:'2026-09-10',
-   caption:`Meet your Business Studies and Economics specialist.
+  {id:'C1', title:'Crash Course — Oct exams', type:'Single Image', due:'2026-09-10',
+   caption:`October exams are closer than they feel.
 
-Cambridge-qualified, 3+ years teaching O and A-level students across UAE and KSA. Combines deep subject knowledge with the kind of exam technique coaching that actually moves grades.
+If you have a paper you haven't properly touched, or a topic that's been sitting in the back of your head since September, that's what crash courses are for.
 
-What to expect in a session:
-→ Past paper analysis, not just theory
-→ Real examples drawn from Gulf economics
-→ Personalised feedback on exam structure and mark allocation
+3 hours. One subject. One sitting. We go through the concepts, the past papers, the mark scheme language examiners reward every year.
 
-Available for CAIE and Edexcel IAL.
+You leave with a plan, not just notes.
 
-Trial session available now. Link in bio.
+DM us or link in bio.`,
+   visual:'Clean, minimal. Natural light desk or plain background. No countdown graphics, no loud text overlays. Warm, not urgent-feeling.',
+   note:'Post Sep 10. Visual direction: understated. Caption tone matches @hugmymind.hmm references. Approve as is or request edits.'},
 
-#OLevel #ALevel #BusinessStudies #Economics #UAETutor #CAIE #EdexcelIAL #SouthAsianUAE`,
-   visual:'Clean tutor portrait or stylised graphic. Navy/gold palette. Subject label overlaid. No clip art.',
-   note:'Post Sep 10. Approve as is or request edits and I will revise before posting.'},
+  {id:'C2', title:'Economics insight — Band 2 cap', type:'Single Image', due:'2026-09-11',
+   caption:`Most Economics students lose marks not because they don't know the theory. They lose them because they don't write like economists.
 
-  {id:'C2', title:'Subject Tip — Economics: PED vs PES', type:'Carousel (3 slides)', due:'2026-09-11',
-   caption:`One thing that trips up O-level Economics students every year:
+Evaluation requires you to weigh, qualify, and conclude. Not just explain. The mark scheme wants "however," "in the long run," "it depends on whether."
 
-Confusing PED with PES.
+If you're writing explanations without evaluating, you're capped at Band 2.
 
-— Slide 1 —
-The question students get wrong:
-"Both measure elasticity — so what's the difference?"
+If you're sitting Economics this October, this is worth knowing now.`,
+   visual:'Text-on-image or plain card. Clean font, no decorative elements. One key phrase pulled out visually if carousel.',
+   note:'Credibility post — shows subject expertise without promotional framing. Post Sep 11.'},
 
-— Slide 2 —
-PED = Price Elasticity of Demand
-→ Consumers. How buyers respond to a price change.
+  {id:'C3', title:'Session structure — what LA looks like', type:'Single Image', due:'2026-09-12',
+   caption:`Every session starts with a quiz. Not to test you, to warm your brain up and surface what didn't stick from last time.
 
-PES = Price Elasticity of Supply
-→ Producers. How sellers respond to a price change.
+Then we work through the concept. Structured notes. Not a textbook read aloud.
 
-Same price change. Opposite perspectives.
+Then you apply it before the next session.
 
-— Slide 3 —
-The exam trick:
-When you see "elasticity" in a question, ask first:
-Are we talking about buyers or sellers?
-That one question gets you the right formula every time.
-
-Save this for your revision.
-
-Learners' Avenue — O/A-level tutoring for UAE students.
-Book a trial session. Link in bio.
-
-#OLevel #Economics #StudyTip #CAIE #EdexcelIAL #UAEStudents`,
-   visual:'Slide 1: question text, dark bg. Slide 2: two-column comparison. Slide 3: tip pullout, gold accent. Minimal.',
-   note:'Carousel format — 3 slides. Approve to schedule for Sep 11.'},
-
-  {id:'C3', title:'Founder Story — Why I Started This', type:'Single Image + Caption', due:'2026-09-12',
-   caption:`I've been tutoring O and A-level students in the UAE for two years.
-
-The most common question I get from parents isn't "what are your rates?"
-
-It's: "How do I know the tutor actually knows the subject?"
-
-That question stayed with me. Because it's the right one.
-
-At Learners' Avenue, every tutor passes a subject-matter test and a live teaching demo before we recommend them to a single student. Not a CV review. An actual test.
-
-We exist for South Asian families in the UAE who want tutoring held to a standard — not just available.
-
-Business Studies. Economics. English Language. O and A-level.
-
-Trial sessions available now. Link in bio.`,
-   visual:'Personal tone — founder photo (optional) or minimalist text card. Warm, not corporate. No stock photos.',
-   note:'Goes up Sep 12 — the day before the Sep 15 push. Tone is intentionally personal and direct. Approve as is or request edits.'},
+That structure isn't just habit. It's what moves marks.`,
+   visual:'Minimal. Could be a visual of notes or a desk setup. Warm, personal. Not a branded graphic.',
+   note:'Post Sep 12. Introduces the session format without sounding like a sales pitch. Approve as is or request edits.'},
 ];
 
 const RES = {
@@ -359,7 +393,7 @@ const RES = {
 let S = {view:'domain', dom:'MR', tabs:{}, ex:new Set(), cex:new Set(), ts:{}, cs:{}};
 function load(){try{const r=localStorage.getItem('la-os');if(r){const p=JSON.parse(r);S.ts=p.ts||{};S.cs=p.cs||{};S.view=p.view||'domain';S.dom=p.dom||'MR';}}catch(e){}}
 function save(){try{localStorage.setItem('la-os',JSON.stringify({ts:S.ts,cs:S.cs,view:S.view,dom:S.dom}));}catch(e){}}
-function gts(id){return S.ts[id]||'Draft'}
+function gts(id){return S.ts[id]||(T.find(t=>t.id===id)||{}).st||'Draft'}
 function gcs(id){return S.cs[id]||'Draft'}
 
 /* STATUS */
@@ -433,7 +467,8 @@ function rTT(tasks, showDom){
     const detrow=ex?`<tr class="td-row" id="td-${t.id}"><td colspan="${showDom?9:8}">
       <div class="td-inner">
         <div>${e(t.d)}</div>
-        <div class="td-grid">
+        ${t.out?`<div style="margin-top:12px"><div class="tlabel" style="margin-bottom:6px">Output</div><div class="caption" style="font-size:11px;line-height:1.7;white-space:pre-wrap">${e(t.out)}</div></div>`:''}
+        <div class="td-grid" style="margin-top:${t.out?'10px':'9px'}">
           ${t.blk?`<div><div class="tlabel">Blocker</div><span class="blk">${e(t.blk)}</span></div>`:''}
           ${t.deps.length?`<div><div class="tlabel">Dependencies</div><div class="deps">${t.deps.map(dep=>`<span class="dep" onclick="gt('${dep}',event)">${dep}</span>`).join('')}</div></div>`:''}
         </div>
