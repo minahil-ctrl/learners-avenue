@@ -81,6 +81,56 @@ That structure isn't just habit. It's what moves marks.
 
 ---
 
+---
+
+## Post 4 — We're Back (post TODAY, Sep 3)
+
+**Format:** Single image
+**Target date:** Sep 3 (today)
+**Status:** [ITERATE]
+
+```
+We took a break. We're back.
+
+Learners' Avenue is an agency for students studying Business,
+Economics, and English. Every tutor is personally selected. Every
+session has a structure — quiz, concept, application — not just
+an hour of notes.
+
+If you have October exams and you're not where you want to be,
+that is exactly who we're here for.
+
+DM or link in bio.
+```
+
+**Visual direction:** Profile photo of Minahil or a clean desk setup. Warm, natural light. No logo overlay needed. The simplicity is the statement.
+
+**Note:** This post re-establishes presence without over-explaining the break. It introduces who LA is for without level references. End with one action.
+
+---
+
+## Post 5 — Logo Launch (post TODAY, Sep 3, after Post 4)
+
+**Format:** Single image
+**Target date:** Sep 3 (today)
+**Status:** [ITERATE]
+
+```
+We have a logo now.
+
+It took longer than it should have. But it's here, and we like it.
+
+Learners' Avenue. Business. Economics. English.
+
+More coming this month.
+```
+
+**Visual direction:** Clean center-frame display of the logo on a solid or very lightly textured background. Warm off-white or deep navy. No text overlay needed beyond the logo itself. Let it breathe.
+
+**Note:** This only works if the logo actually exists. If it doesn't yet, use Post 4 only today. Post 5 can go up the day the logo is finalized. Do not fake the launch.
+
+---
+
 ## Notes
 
 - No em dashes anywhere (per Minahil direction Sep 3)
